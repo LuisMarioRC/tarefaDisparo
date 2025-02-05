@@ -1,0 +1,61 @@
+{
+    "version": 1,
+    "author": "Luis Mario",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-pi-pico-w", "id": "pico", "top": -41.65, "left": 61.15, "attrs": {} },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 186.35,
+        "left": -57.6,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r2",
+        "top": 205.55,
+        "left": -57.6,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r3",
+        "top": 224.75,
+        "left": -57.6,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-pushbutton",
+        "id": "btn1",
+        "top": -13,
+        "left": -28.8,
+        "attrs": { "color": "black" }
+      },
+      { "type": "wokwi-led", "id": "led1", "top": 54, "left": -92.2, "attrs": { "color": "red" } },
+      {
+        "type": "wokwi-led",
+        "id": "led2",
+        "top": 102,
+        "left": -92.2,
+        "attrs": { "color": "green" }
+      },
+      { "type": "wokwi-led", "id": "led3", "top": 6, "left": -92.2, "attrs": { "color": "blue" } }
+    ],
+    "connections": [
+      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "pico:GND.1", "btn1:1.r", "black", [ "h0" ] ],
+      [ "pico:GP5", "btn1:2.r", "green", [ "h0" ] ],
+      [ "pico:GND.4", "r3:2", "black", [ "h-38.4", "v96.04" ] ],
+      [ "r2:2", "pico:GND.4", "green", [ "v0", "h27.6", "v-76.8" ] ],
+      [ "r1:2", "pico:GND.4", "green", [ "v0", "h27.6", "v-48" ] ],
+      [ "pico:GP13", "led2:A", "green", [ "h-86.4", "v19.24" ] ],
+      [ "led1:A", "pico:GP12", "green", [ "v0", "h48", "v9.6" ] ],
+      [ "led3:A", "pico:GP11", "green", [ "v0", "h57.6", "v57.6" ] ],
+      [ "r3:1", "led3:C", "green", [ "v0", "h-76.8", "v-182.4" ] ],
+      [ "r2:1", "led1:C", "green", [ "v0", "h-76.8", "v-115.2" ] ],
+      [ "r1:1", "led2:C", "green", [ "v0", "h-76.8", "v-48" ] ]
+    ],
+    "dependencies": {}
+  }
